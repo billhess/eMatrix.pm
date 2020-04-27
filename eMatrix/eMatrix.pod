@@ -1,0 +1,122 @@
+=head1 NAME
+
+  eMatrix Perl Modules
+
+=head1 SYNOPSIS
+
+  use MQL;
+  use eMatrix::DB;
+  use eMatrix::Type;
+  use eMatrix::Attribute;
+  use eMatrix::Relationship;
+  use eMatrix::Person;
+  use eMatrix::Group;
+  use eMatrix::Role;
+  use eMatrix::Policy;
+  use eMatrix::Format;
+  use eMatrix::Program;
+  use eMatrix::Vault;
+  use eMatrix::Store;
+  use eMatrix::BizObj;
+  use eMatrix::Context;
+
+  $ENV{MATRIXHOME} needs to be set to the directory where eMatrix Thick
+  Client is installed (on the same level as the "scripts" and "bin" 
+  directories).  
+  
+
+=head1 DESCRIPTION
+
+The eMatrix Perl Modules were developed for the purpose of accessing
+the eMatrix schema, and Business Objects via Perl.
+
+SWIG (Software Wrapper Interface Generator) was use to facilitate the 
+building of this module.  Information on SWIG can be found at
+www.swig.org
+
+
+=head1 MQL.pm
+
+  Before we get into Business Objects, and Relationships, it's important
+  to understand the process at a lower level.  MQL.pm is the mechanism
+  perl uses to communicate with the eMatrix Server.
+
+  use MQL;
+
+  my $rc = MQL::Open($bootstrap, $path, $mql_exec);
+    # $bootstrap is "MATRIX-R" by default
+    # $path      is "$ENV{MATRIXHOME}/scripts" by default
+    # $mql_exec  is "mql" on Unix, "mql.exe" on Win32 by default
+
+  my $rc = MQL::OpenLog($log_file);
+
+  my ($rc, @output, @error) = MQL::Execute(<some MQL statement>);
+
+  my $rc = MQL::CloseLog();
+  my $rc = MQL::Close();
+
+  The eMatrix Perl Modules use these MQL methods to communicate with
+  the Matrix Server.  A developer who understands MQL, and who wants
+  to develop code beyond what the eMatrix Perl modules offers, has
+  access to MQL.pm, and can access it directly.
+  
+
+=head1 eMatrix::DB
+
+=item connect()
+   With optional parameters: ($bootstrap, $path)
+   
+   Returns an eMatrix::DB object, which contains an eMatrix::Context
+   object.
+
+   my $mdb = eMatrix::DB::connect();
+
+=item disconnect()
+   Gracefully closes an existing eMatrix::DB connection.
+   If a Log file exists, it is closed as well.
+
+
+=head1 eMatrix::Type;
+
+
+=head1 eMatrix::Attribute;
+
+
+=head1 eMatrix::Relationship;
+
+
+=head1 eMatrix::Person;
+
+
+=head1 eMatrix::Group;
+
+
+=head1 eMatrix::Role;
+
+
+=head1 eMatrix::Policy;
+
+
+=head1 eMatrix::Format;
+
+
+=head1 eMatrix::Program;
+
+
+=head1 eMatrix::Vault;
+
+
+=head1 eMatrix::Store;
+
+
+=head1 eMatrix::BizObj;
+
+
+=head1 eMatrix::Context;
+
+
+=head1 AUTHOR
+
+TRG - info@techrg.com
+
+=cut
